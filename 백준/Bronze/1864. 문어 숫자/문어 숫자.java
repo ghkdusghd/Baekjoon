@@ -3,40 +3,36 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Main {
-
-    public static int converter(char[] octoNum, char c) {
-        if (c == '/') {
-            return -1;
-        }
-
-        int result = 0;
-        for (int i = 0; i < octoNum.length; i++) {
-            if (octoNum[i] == c) {
-                result = i;
-            }
-        }
-        return result;
-    }
-
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
-        char[] octoNum = {'-', '\\', '(', '@', '?', '>', '&', '%'};
 
         while (true) {
             String n = br.readLine();
+            int result = 0;
             if (n.equals("#")) break;
 
-            double result = 0;
             for (int i = 0; i < n.length(); i++) {
-                char c = n.charAt(i);
-                int humanNum = converter(octoNum, c);
-                int power = n.length() - 1 - i;
-                result += humanNum * Math.pow(8, power);
+                if (n.charAt(i) == '-') {
+                    result += 0 * Math.pow(8, (n.length() - 1 - i));
+                } else if (n.charAt(i) == '\\') {
+                    result += 1 * Math.pow(8, (n.length() - 1 - i));
+                } else if (n.charAt(i) == '(') {
+                    result += 2 * Math.pow(8, (n.length() - 1 - i));
+                } else if (n.charAt(i) == '@') {
+                    result += 3 * Math.pow(8, (n.length() - 1 - i));
+                } else if (n.charAt(i) == '?') {
+                    result += 4 * Math.pow(8, (n.length() - 1 - i));
+                } else if (n.charAt(i) == '>') {
+                    result += 5 * Math.pow(8, (n.length() - 1 - i));
+                } else if (n.charAt(i) == '&') {
+                    result += 6 * Math.pow(8, (n.length() - 1 - i));
+                } else if (n.charAt(i) == '%') {
+                    result += 7 * Math.pow(8, (n.length() - 1 - i));
+                } else {
+                    result += -1 * Math.pow(8, (n.length() - 1 - i));
+                }
             }
-            sb.append((int)result).append("\n");
+            System.out.println(result);
         }
-        System.out.println(sb);
     }
-
 }
