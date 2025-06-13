@@ -11,17 +11,16 @@ public class Main {
     public static void main(String[] args) throws Exception {
         int n = read();
         int m = read();
-        int[] prefix = new int[n + 1];
-        for (int i = 1; i <= n; i++) {
-            prefix[i] = prefix[i-1] + read();
-        }
 
-        int count = 0;
+        int sum = 0; // 누적합하는 변수
+        int count = 0; // 경우의 수 집계
+
         Map<Integer, Integer> map = new HashMap<>();
-        map.put(0,1);
+        map.put(sum,1);
         for (int i = 1; i <= n; i++) {
-            count += map.getOrDefault((prefix[i] - m), 0);
-            map.put(prefix[i],1);
+            sum += read();
+            count += map.getOrDefault((sum - m), 0);
+            map.put(sum,1);
         }
         System.out.println(count);
     }
