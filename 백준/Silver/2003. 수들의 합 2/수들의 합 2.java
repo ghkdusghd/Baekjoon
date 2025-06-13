@@ -20,7 +20,7 @@ public class Main {
         for (int i = 1; i <= n; i++) {
             sum += read();
             count += map.getOrDefault((sum - m), 0);
-            map.put(sum,1);
+            map.put(sum,map.getOrDefault(sum,0) + 1);
         }
         System.out.println(count);
     }
