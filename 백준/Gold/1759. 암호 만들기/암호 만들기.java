@@ -50,14 +50,12 @@ public class Main {
             return;
         }
 
-        for (int next = 0; next < C; next++) {
-            if (next >= idx) {
-                if (visit[next] == false) {
-                    visit[next] = true;
-                    String result = str + alphabet[next];
-                    backTracking(next,count + 1, result);
-                    visit[next] = false;
-                }
+        for (int next = idx; next < C; next++) {
+            if (visit[next] == false) {
+                visit[next] = true;
+                String result = str + alphabet[next];
+                backTracking(next,count + 1, result);
+                visit[next] = false;
             }
         }
     }
