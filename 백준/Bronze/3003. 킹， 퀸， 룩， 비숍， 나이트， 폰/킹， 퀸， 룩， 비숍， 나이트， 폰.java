@@ -4,7 +4,8 @@ public class Main {
         int[] chess = {1, 1, 2, 2, 2, 8};
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 6; i++) {
-            sb.append(chess[i] - read()).append(" ");
+            int input = read();
+            sb.append(chess[i] - input).append(" ");
         }
         System.out.println(sb);
     }
