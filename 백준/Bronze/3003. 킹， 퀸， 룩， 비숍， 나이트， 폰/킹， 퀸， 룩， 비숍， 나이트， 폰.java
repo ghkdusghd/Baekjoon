@@ -2,9 +2,11 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         int[] chess = {1, 1, 2, 2, 2, 8};
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 6; i++) {
-            System.out.print(chess[i] - read() + " ");
+            sb.append(chess[i] - read()).append(" ");
         }
+        System.out.println(sb);
     }
 
     static int read() throws Exception {
